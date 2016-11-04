@@ -29,7 +29,7 @@ class WeatherService
     }
 
     private function _getCurrentWeatherUrl() {
-        return self::$API_URL . '/weather?lat='.$this->lat.'&lon='.$this->lon.'&apiKey='.$this->_api_key;
+        return self::$API_URL . '/weather?lat='.$this->lat.'&lon='.$this->lon.'&units=metric&apiKey='.$this->_api_key;
     }
 
     private function _getCurrentWeatherJSON(String $url_to_call) {
