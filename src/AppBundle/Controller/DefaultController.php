@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Services\LocalisationService;
 use AppBundle\Services\WeatherService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,7 +15,10 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $weather_service = new WeatherService('48.866096', '2.3711066');
+        $localisation_service = new LocalisationService();
+        $geoloc = $localisation_service->getGeolocalisation();
+
+        $weather_service = new WeatherService($geoloc['lng'], $geoloc['lat']);
         $current_weather = $weather_service->getCurrentWeather();
 
         // replace this example code with whatever you need
