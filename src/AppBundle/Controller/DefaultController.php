@@ -33,6 +33,11 @@ class DefaultController extends Controller
                     "SynzKC4fWp0",
                     "4QOIvQptS4A",
                     "ljx-kwWIV8Y"
+                ],
+                "Rain" => [
+                    "SynzKC4fWp0",
+                    "4QOIvQptS4A",
+                    "ljx-kwWIV8Y"
                 ]
             ],
             "night" => [
@@ -43,6 +48,13 @@ class DefaultController extends Controller
                     "1esaH_VDlK4"
                 ],
                 "Clouds" => [
+                    "aiAmAcaDQrM",
+                    "Md_tYP1yiIQ",
+                    "SynzKC4fWp0",
+                    "4QOIvQptS4A",
+                    "ljx-kwWIV8Y"
+                ],
+                "Rain" => [
                     "aiAmAcaDQrM",
                     "Md_tYP1yiIQ",
                     "SynzKC4fWp0",
