@@ -29,7 +29,11 @@ class WeatherService
     }
 
     private function _getCurrentWeatherUrl() {
-        return self::$API_URL . '/weather?lat='.$this->lat.'&lon='.$this->lon.'&units=metric&apiKey='.$this->_api_key;
+        if($this->_api_key != null){
+            return self::$API_URL . '/weather?lat='.$this->lat.'&lon='.$this->lon.'&units=metric&apiKey='.$this->_api_key;
+        } else {
+            throw new \Error('You must have an api_key in src/AppBundle/Services/WeatherService.php');
+        }
     }
 
     private function _getCurrentWeatherJSON(String $url_to_call) {
