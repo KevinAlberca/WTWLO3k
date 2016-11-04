@@ -7,7 +7,7 @@
                 <h1><span>Welcome to</span> What's the weather like outside ?</h1>
             </div>
 
-            <h4>Outside, the weather is Sunny !</h4>
+            <h4>Outside, this is the {{ moment }} and the weather is {{ weather|lower }}, listen !</h4>
             <div id="player" class="hidden"></div>
             <button onclick="next()">Another One !</button>
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -44,16 +44,9 @@
 
         var keyword = "ambiance";
         var items = [
-            "2G8LAiHSCAs",
-            "OdIJ2x3nxzQ",
-            "aiAmAcaDQrM",
-            "SynzKC4fWp0",
-            "x30YOmfeVTE",
-            "4QOIvQptS4A",
-            "Md_tYP1yiIQ",
-            "EjBR8con4dU",
-            "yJV7qevsCcw",
-            "ljx-kwWIV8Y"
+            {% for i in videos %}
+            "{{ i }}",
+            {% endfor %}
         ];
         var tag = document.createElement('script');
         var player;
@@ -62,17 +55,6 @@
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        /*function searchByKeyword(query) {
-            var results = YT.Search.list('id,snippet', {q: query, maxResults: 10});
-            for(var i in results.items) {
-                var item = results.items[i];
-                console.log('[%s] Title: %s', item.id.videoId, item.snippet.title);
-            }
-            items = results.items;
-
-            loadPlayer()
-        }*/
 
         function onYouTubeIframeAPIReady() {
             loadPlayer();

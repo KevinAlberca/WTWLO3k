@@ -12,7 +12,7 @@ namespace AppBundle\Services;
 class WeatherService
 {
     static public $API_URL = 'http://api.openweathermap.org/data/2.5/';
-    private $_api_key = '';
+    private $_api_key = 'cd86905a9de4a374fed7422a848926e4';
     public $lon;
     public $lat;
 
