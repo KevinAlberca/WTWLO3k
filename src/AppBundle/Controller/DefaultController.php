@@ -21,8 +21,7 @@ class DefaultController extends Controller
         $weather_service = new WeatherService($geoloc['lng'], $geoloc['lat']);
         $current_weather = $weather_service->getCurrentWeather();
         $weather = $current_weather->weather[0]->main;
-
-        $moment = intval(date("h")) > 7 && intval(date("h")) < 21 ? "day" : "night";
+        $moment = time() > $current_weather->sys->sunrise && time() < $current_weather->sys->sunset ? "day" : "night";
 
         $videos = [
             "day" => [
